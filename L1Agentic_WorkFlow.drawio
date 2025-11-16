@@ -1,0 +1,166 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36" version="28.1.2">
+  <diagram name="Page-1" id="k3t4tc1zLX6YerN9wL1A">
+    <mxGraphModel dx="1311" dy="403" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="qVEiG_oz-gAuUlZ4iJeL-3" value="Queueing Module" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#90caf9;" vertex="1" parent="1">
+          <mxGeometry x="344" y="127" width="110" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="qVEiG_oz-gAuUlZ4iJeL-4" value="Collect ticket details from last 5 mins.&#xa;Update tickets in elastic index:&#xa;&quot;customer-ptt-l1-agent-queues&quot; with fields:&#xa;- timestamp&#xa;- ticket_numbers (string of ticket IDs)&#xa;- queue_processed = False" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="190" y="160" width="400" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="qVEiG_oz-gAuUlZ4iJeL-2" value="Start" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;" vertex="1" parent="1">
+          <mxGeometry x="340" y="20" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="qVEiG_oz-gAuUlZ4iJeL-5" value="Agent Module" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#90caf9;" vertex="1" parent="1">
+          <mxGeometry x="320" y="316" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="qVEiG_oz-gAuUlZ4iJeL-6" value="Fetch documents where queue_processed == False from&#xa;&quot;customer-ptt-l1-agent-queues&quot; index" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="350" width="380" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="qVEiG_oz-gAuUlZ4iJeL-7" value="For each ticket_id:&#xa;Fetch complete ticket details&#xa;Validate ticket state" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="458" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="qVEiG_oz-gAuUlZ4iJeL-8" value="Is ticket state OPEN?" style="rhombus;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="330" y="626" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="qVEiG_oz-gAuUlZ4iJeL-9" value="1.Assign Automation DL in &#39;Assign to Me&#39;&lt;div&gt;2.Change organization&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="580" y="570" width="240" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="qVEiG_oz-gAuUlZ4iJeL-10" value="3.Change ticket state to &#39;Work in Progress&#39;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="580" y="680" width="240" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="qVEiG_oz-gAuUlZ4iJeL-11" value="4.Add note in &#39;Reply to Customer&#39; pane:&lt;br&gt;&#39;Ticket is under Investigation&#39;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="580" y="780" width="240" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="qVEiG_oz-gAuUlZ4iJeL-12" value="&lt;b&gt;Use AI&lt;/b&gt; to:&lt;br&gt;- Compare alert details with predefined use cases&lt;br&gt;- Generate recommendations for known/new use cases" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#A5D6A7;" vertex="1" parent="1">
+          <mxGeometry x="30" y="650" width="240" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="qVEiG_oz-gAuUlZ4iJeL-13" value="Submit recommendation details in &#39;Reply to Customer&#39; pane" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a5d6a7;" vertex="1" parent="1">
+          <mxGeometry x="30" y="830" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qVEiG_oz-gAuUlZ4iJeL-14" value="&lt;b&gt;Use AI&lt;/b&gt; to : interpret read customer comments" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#A5D6A7;" vertex="1" parent="1">
+          <mxGeometry x="320" y="910" width="260" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="qVEiG_oz-gAuUlZ4iJeL-15" value="Based on customer confirmation" style="rhombus;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="370" y="1031" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="qVEiG_oz-gAuUlZ4iJeL-16" value="Known Activity - Update ticket state to &#39;Resolved&#39;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a5d6a7;" vertex="1" parent="1">
+          <mxGeometry x="100" y="1140" width="280" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="qVEiG_oz-gAuUlZ4iJeL-17" value="Unknown Activity - Escalate to L2 by updating &#39;Assign to Me&#39; to L2 DL" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ef9a9a;" vertex="1" parent="1">
+          <mxGeometry x="510" y="1140" width="320" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="qVEiG_oz-gAuUlZ4iJeL-18" value="End" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;" vertex="1" parent="1">
+          <mxGeometry x="370" y="1310" width="170" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="qVEiG_oz-gAuUlZ4iJeL-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2196f3;" edge="1" parent="1" source="qVEiG_oz-gAuUlZ4iJeL-2" target="qVEiG_oz-gAuUlZ4iJeL-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qVEiG_oz-gAuUlZ4iJeL-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2196f3;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" target="qVEiG_oz-gAuUlZ4iJeL-5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="399.47" y="260.95" as="sourcePoint" />
+            <mxPoint x="399.47" y="280.95" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="400" y="310" />
+              <mxPoint x="399" y="316" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qVEiG_oz-gAuUlZ4iJeL-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2196f3;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="399" y="420" as="sourcePoint" />
+            <mxPoint x="399" y="458" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qVEiG_oz-gAuUlZ4iJeL-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2196f3;" edge="1" parent="1" source="qVEiG_oz-gAuUlZ4iJeL-7" target="qVEiG_oz-gAuUlZ4iJeL-8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="400" y="550" />
+              <mxPoint x="400" y="550" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qVEiG_oz-gAuUlZ4iJeL-25" value="Yes" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#43a047;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="qVEiG_oz-gAuUlZ4iJeL-8" target="qVEiG_oz-gAuUlZ4iJeL-9">
+          <mxGeometry x="-0.045" y="-4" relative="1" as="geometry">
+            <mxPoint x="580" y="550" as="targetPoint" />
+            <mxPoint x="470" y="640" as="sourcePoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qVEiG_oz-gAuUlZ4iJeL-26" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#e53935;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" target="qVEiG_oz-gAuUlZ4iJeL-14">
+          <mxGeometry x="-0.6826" relative="1" as="geometry">
+            <mxPoint x="400" y="700" as="sourcePoint" />
+            <mxPoint x="400" y="880" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="400" y="710" />
+              <mxPoint x="450" y="710" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qVEiG_oz-gAuUlZ4iJeL-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2196f3;" edge="1" parent="1" source="qVEiG_oz-gAuUlZ4iJeL-9" target="qVEiG_oz-gAuUlZ4iJeL-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qVEiG_oz-gAuUlZ4iJeL-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2196f3;" edge="1" parent="1" source="qVEiG_oz-gAuUlZ4iJeL-10" target="qVEiG_oz-gAuUlZ4iJeL-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qVEiG_oz-gAuUlZ4iJeL-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#43a047;" edge="1" parent="1" source="qVEiG_oz-gAuUlZ4iJeL-12" target="qVEiG_oz-gAuUlZ4iJeL-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qVEiG_oz-gAuUlZ4iJeL-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#43a047;" edge="1" parent="1" source="qVEiG_oz-gAuUlZ4iJeL-13" target="qVEiG_oz-gAuUlZ4iJeL-14">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="150" y="850" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qVEiG_oz-gAuUlZ4iJeL-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#43a047;" edge="1" parent="1" source="qVEiG_oz-gAuUlZ4iJeL-14" target="qVEiG_oz-gAuUlZ4iJeL-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qVEiG_oz-gAuUlZ4iJeL-33" value="Known Activity" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#43a047;" edge="1" parent="1" source="qVEiG_oz-gAuUlZ4iJeL-15" target="qVEiG_oz-gAuUlZ4iJeL-16">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="240" y="1066" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qVEiG_oz-gAuUlZ4iJeL-34" value="Unknown Activity" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#e53935;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="526.9999999999998" y="1065" as="sourcePoint" />
+            <mxPoint x="680" y="1139" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="680" y="1065" />
+              <mxPoint x="680" y="1139" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qVEiG_oz-gAuUlZ4iJeL-35" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#43a047;elbow=vertical;exitX=0.463;exitY=1.029;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="239.6400000000001" y="1210" as="sourcePoint" />
+            <mxPoint x="370" y="1333" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="230" y="1332.97" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qVEiG_oz-gAuUlZ4iJeL-36" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#e53935;elbow=vertical;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="qVEiG_oz-gAuUlZ4iJeL-17" target="qVEiG_oz-gAuUlZ4iJeL-18">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="640" y="1250" as="sourcePoint" />
+            <mxPoint x="470" y="1340" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="570" y="1335" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qVEiG_oz-gAuUlZ4iJeL-42" style="edgeStyle=orthogonalEdgeStyle;shape=pipe;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;elbow=vertical;strokeColor=#99FFFF;fillColor=#FFE6CC;width=9;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="580" y="806.2" as="sourcePoint" />
+            <mxPoint x="239" y="760" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

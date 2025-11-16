@@ -1,0 +1,225 @@
+{
+    "CTD": [
+        {
+            "S.No": 1,
+            "Use case Name": "Policy Violation",
+            "Detection": "Alert/Policy Violation",
+            "Mitre ID": null,
+            "Log sources": "CTD",
+            "Default Recommendations": "Recommendation Actions:\n1. Identify the host and block the external IP which cause the policy violation.\n2. Stop or block the network communication which cause the policy violation.",
+            "Priority (In JIRA)": "Low"
+        },
+        {
+            "S.No": 2,
+            "Use case Name": "Login",
+            "Detection": "Alert/Login",
+            "Mitre ID": "Credential Access",
+            "Log sources": "CTD",
+            "Default Recommendations": "Recommendation Actions:\n1. Identify and block the IP/host which try to perform unauthorised fail login access.\n2. Change the user credential in case unauthorised attempt of login.\n3. Block the IP address on firewall from which the login failure was attempted if it is external and suspicious/bad reputed.\n4. Block the unsecure access or ports in case of critical communication.",
+            "Priority (In JIRA)": "Low"
+        },
+        {
+            "S.No": 3,
+            "Use case Name": "Host Scan",
+            "Detection": "Alert/Host Scan",
+            "Mitre ID": "Discovery",
+            "Log sources": "CTD",
+            "Default Recommendations": "Recommendation Actions:\n1. Identify the source and the destination host which perform the asset host scan.\n2. Check the reason and occurance of the host scan initiated.\n3. Block the  port if it is unauthorised, from where the host scan was initiated.",
+            "Priority (In JIRA)": "Low"
+        },
+        {
+            "S.No": 4,
+            "Use case Name": "Configuration Download",
+            "Detection": "Alert/Configuration Download",
+            "Mitre ID": "Collection",
+            "Log sources": "CTD",
+            "Default Recommendations": "Recommendation Actions:\n1. Check if the configuration download activity is legitimate or not.\n2. Identify the source and the destination host where the configuration download was performed.\n3. Check confirmation of the activity from the source and destination device user.\n4. Block the external IP address, if configuration download is performed from external IP address.",
+            "Priority (In JIRA)": "Low"
+        },
+        {
+            "S.No": 5,
+            "Use case Name": "New Asset",
+            "Detection": "Alert/New Asset",
+            "Mitre ID": "Discovery",
+            "Log sources": "CTD",
+            "Default Recommendations": "Recommendation Actions:\n1. Check the host behind the IP address from where new asset detected.\n2. Block the host MAC address/IP on firewall if the host IP is external, so that the rouge asset can not able to connect to the network.",
+            "Priority (In JIRA)": "High"
+        },
+        {
+            "S.No": 6,
+            "Use case Name": "New Conflict Asset",
+            "Detection": "Alert/New Conflict Asset",
+            "Mitre ID": "Lateral Movement",
+            "Log sources": "CTD",
+            "Default Recommendations": "Recommendation Actions:\n1. Check the host behind the IP address from where new asset detected.\n2. Block the host MAC address/IP on firewall if the host IP is external, so that the rouge asset can not able to connect to the network.",
+            "Priority (In JIRA)": "Medium"
+        },
+        {
+            "S.No": 7,
+            "Use case Name": "Asset Information Change",
+            "Detection": "Alert/Asset Information Change",
+            "Mitre ID": "Impact",
+            "Log sources": "CTD",
+            "Default Recommendations": "Recommendation Actions:\n1. Identify and check the device associated with the host IP address \n2. Determine what specific information has been altered for asset.\n3. Block the host MAC address/IP on firewall if the host IP is external, so that the rouge asset can not able to connect to the network.\n4. Please check if the asset information change is performed by customer for any known reason or not.",
+            "Priority (In JIRA)": "Medium"
+        },
+        {
+            "S.No": 8,
+            "Use case Name": "Policy Rule Match",
+            "Detection": "Alert/Policy Rule Match",
+            "Mitre ID": "Collection",
+            "Log sources": "CTD",
+            "Default Recommendations": "Recommendation Actions:\n1. Check if the policy rule match activity is legitimate or not.\n2. Identify and check the source and the destination host, between whose the policy rule match was detected.\n3. Check the activity on source and destination host which cause the policy violation.",
+            "Priority (In JIRA)": "Medium"
+        }
+    ],
+    "FW-PA": [
+        {
+            "S.No": 1,
+            "Use case Name": "Port Scan",
+            "Use case description": "Find the issue when an asset tried to communicate  the destination host with multiple ports involved",
+            "Mitre ID": "Reconnaissance",
+            "Log sources": "FW",
+            "Default Recommendations": "Recommendations:-\n1. Please check the source IP and destination IP whether those are legit or not ?\n2. Check the network applications during the communication followed by the port number\n3. Get confirmation from the customer.\n4. If the IP is not legit / not related to Customer, block over the Firewall",
+            "Severity": "Low",
+            "Priority (In JIRA)": "Low"
+        },
+        {
+            "S.No": 2,
+            "Use case Name": "Test Network Scan",
+            "Use case description": "Find the issue when an asset tried to communicate with multiple destination hosts & ports involved",
+            "Mitre ID": "Reconnaissance",
+            "Log sources": "FW",
+            "Default Recommendations": "Recommendations:-\n1. Please check the source IP's whether those are legit or not ?\n2. Check the network applications during the communication followed by the port number\n3. Get confirmation from the customer.\n4. If the IP is not legit / not related to Customer, block over the Firewall",
+            "Severity": "Low",
+            "Priority (In JIRA)": "Low"
+        },
+        {
+            "S.No": 3,
+            "Use case Name": "Threat Signature - Critical",
+            "Use case description": "Find the threat when an internal / external Ip tried to exploit",
+            "Mitre ID": null,
+            "Log sources": "FW",
+            "Default Recommendations": "Recommendations:-\n1. Please check the source IP and destination IP whether those are legit or not ?\n2. Check the network applications during the communication followed by the port number and threat name\n3. Get confirmation from the customer.\n4. If the IP is not legit / not related to Customer, block over the Firewall\n5. Provide the mitigation against the Threat Name",
+            "Severity": "Critical",
+            "Priority (In JIRA)": "Critical"
+        },
+        {
+            "S.No": 4,
+            "Use case Name": "Threat Signature - High",
+            "Use case description": "Find the threat when an internal / external Ip tried to exploit",
+            "Mitre ID": null,
+            "Log sources": "FW",
+            "Default Recommendations": "Recommendations:-\n1. Please check the source IP and destination IP whether those are legit or not ?\n2. Check the network applications during the communication followed by the port number and threat name\n3. Get confirmation from the customer.\n4. If the IP is not legit / not related to Customer, block over the Firewall\n5. Provide the mitigation against the Threat Name",
+            "Severity": "High",
+            "Priority (In JIRA)": "High"
+        },
+        {
+            "S.No": 5,
+            "Use case Name": "Threat Signature - Medium",
+            "Use case description": "Find the threat when an internal / external Ip tried to exploit",
+            "Mitre ID": null,
+            "Log sources": "FW",
+            "Default Recommendations": "Recommendations:-\n1. Please check the source IP and destination IP whether those are legit or not ?\n2. Check the network applications during the communication followed by the port number and threat name\n3. Get confirmation from the customer.\n4. If the IP is not legit / not related to Customer, block over the Firewall\n5. Provide the mitigation against the Threat Name",
+            "Severity": "Medium",
+            "Priority (In JIRA)": "Medium"
+        }
+    ],
+    "AD": [
+        {
+            "S.No": 1,
+            "Use case Name": "Registry Object Added or Deleted",
+            "Use case description": "Registry on AD created or deleted",
+            "Detection": "Event ID : 12",
+            "Mitre ID": "TA0005(Defense Evation)",
+            "Log sources": "AD",
+            "Default Recommendations": "Recommendations:\n1. Verify the source of the registry object change to ensure it is authorized.\n2. Validate that added or deleted objects are intentional and necessary.\n3. Maintain recent backups of Active Directory including the schema for recovery.\n4. Restrict schema admin privileges to trusted personnel only.",
+            "Priority (In JIRA)": "High"
+        },
+        {
+            "S.No": 2,
+            "Use case Name": "Group policy setting for a user applied",
+            "Use case description": "The Group Policy settings for the user were processed successfully",
+            "Detection": "Event ID : 1503",
+            "Mitre ID": "TA0004(Privilege Escalation)",
+            "Log sources": "AD",
+            "Default Recommendations": "1. Confirm Event ID 1503 indicates successful user policy processing during logon.\n2. Use gpresult /h or RSoP to determine exactly which GPOs were applied.\n3. Document all applied GPOs for auditing and troubleshooting purposes.\n4. Do a periodical check of Applied GPO's",
+            "Priority (In JIRA)": "Medium"
+        },
+        {
+            "S.No": 3,
+            "Use case Name": "System password changed on DC",
+            "Use case description": "The system successfully changed its password on the domain controller",
+            "Detection": "Event ID : 5823",
+            "Mitre ID": "TA0006 (Credential Access)",
+            "Log sources": "AD",
+            "Default Recommendations": "1. Verify the timestamp and frequency of password changes to ensure regular domain computer account updates.\n2. Check for any abnormal or repeated password changes that might indicate replication or trust issues.\n3. Confirm the source domain controller processing the password change is healthy and in sync.\n4. Ensure the computer account involved is active and authorized within the domain.\n",
+            "Priority (In JIRA)": "High"
+        },
+        {
+            "S.No": 4,
+            "Use case Name": "Authentication Failure",
+            "Use case description": null,
+            "Detection": "Event ID : 4625",
+            "Mitre ID": null,
+            "Log sources": null,
+            "Default Recommendations": null,
+            "Priority (In JIRA)": "Medium"
+        },
+        {
+            "S.No": 5,
+            "Use case Name": "Password change Attempt",
+            "Use case description": null,
+            "Detection": "Event ID : 4723",
+            "Mitre ID": null,
+            "Log sources": null,
+            "Default Recommendations": null,
+            "Priority (In JIRA)": "Low"
+        },
+        {
+            "S.No": 6,
+            "Use case Name": "Special privileges assigned to new logon",
+            "Use case description": null,
+            "Detection": "Event ID : 4672",
+            "Mitre ID": null,
+            "Log sources": null,
+            "Default Recommendations": null,
+            "Priority (In JIRA)": "Low"
+        }
+    ],
+    "AV": [
+        {
+            "S.No": 1,
+            "Use case Name": "Threat signature is not update",
+            "Use case description": "Threat signature is not updated for one Host",
+            "Detection": null,
+            "Mitre ID": null,
+            "Log sources": "AV",
+            "Default Recommendations": "1. Force a manual update\n2. Check agent connectivity \n3. Review update policies(EPO)\n4. Check storage/logs\n5.Reinstall agent (if needed)",
+            "Severity": "Medium",
+            "Priority (In JIRA)": "Medium"
+        },
+        {
+            "S.No": 2,
+            "Use case Name": "Threat handled: False",
+            "Use case description": "Threat handled: False on a HOST(XX.XX.XX.XX)",
+            "Detection": "Event ID : 1024 or 1278 And Threat handled:False",
+            "Mitre ID": null,
+            "Log sources": "AV",
+            "Default Recommendations": "1. Verify the Threat\nCheck the Threat Log for details like the type of threat (e.g., malware, PUP, exploit), the file or process affected, and its severity.\n2. Check Host for Symptoms:  unusual system behavior, resource usage spikes, or suspicious processes.\n3. Update the DAT and Run a Full Scan\n4. Quarantine or Remove the Threat manually.\n5. Perform Threat hunt to find the origin and check in other systems",
+            "Severity": "High",
+            "Priority (In JIRA)": "High"
+        },
+        {
+            "S.No": 3,
+            "Use case Name": "Malware detected",
+            "Use case description": "Malware detected on a HOST (XX.XX.XX.XX)",
+            "Detection": "Event ID : 1024 or 1278 And Threat handled:True",
+            "Mitre ID": null,
+            "Log sources": "AV",
+            "Default Recommendations": "1. Check the actions from AV\n2. Verify the Threat\nCheck the Threat Log for details like the type of threat (e.g., malware, PUP, exploit), the file or process affected, and its severity.\n3. Check Host for Symptoms:  unusual system behavior, resource usage spikes, or suspicious processes.\n4. Update the DAT and Run a Full Scan\n5. Quarantine or Remove the Threat manually.\n6. Perform Threat hunt to find the origin and check in other systems",
+            "Severity": "High",
+            "Priority (In JIRA)": "High"
+        }
+    ]
+}
